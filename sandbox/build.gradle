@@ -3,5 +3,5 @@ plugins {
   id 'application'
 } 
 application {
-    mainClass = "MyFirstProgram"
+    mainClass = "ru.stqa.pft.sandbox.MyFirstProgram"
 }
