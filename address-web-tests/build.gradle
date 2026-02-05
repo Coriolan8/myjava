@@ -2,9 +2,7 @@ plugins {
   id 'java'
   id 'application'
 } 
-application {
-    mainClass = "ru.stqa.pft.sandbox.MyFirstProgram"
-}
+
 repositories {
     mavenCentral()
 }
@@ -12,6 +10,7 @@ repositories {
 dependencies {
     testImplementation 'org.testng:testng:7.5'
     testImplementation 'org.slf4j:slf4j-simple:1.7.32'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.40.0'
 }
 
 test {
