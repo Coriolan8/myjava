@@ -15,16 +15,7 @@ public class ApplicationManager {
   private SessionHelper sessionHelper;
   private ContactHelper contactHelper;
 
-  public static boolean isAlertPresent(FirefoxDriver wd) {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  public void init() {
+    public void init() {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     wd.get("http://localhost/addressbook/");
@@ -36,8 +27,7 @@ public class ApplicationManager {
   }
 
 
-  public void stop() {
-    navigationHelper.wd.quit();
+  public void stop() { navigationHelper.wd.quit();
   }
 
 
