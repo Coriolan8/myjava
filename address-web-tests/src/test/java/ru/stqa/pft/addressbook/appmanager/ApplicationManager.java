@@ -1,23 +1,36 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.pft.addressbook.model.ContactData;
+import org.openqa.selenium.remote.Browser;
 
 import java.time.Duration;
 
 public class ApplicationManager {
-  FirefoxDriver wd;
+  WebDriver wd;
 
   private  NavigationHelper navigationHelper;
   private  GroupHelper groupHelper;
   private SessionHelper sessionHelper;
   private ContactHelper contactHelper;
+  private Browser browser;
 
-    public void init() {
-    wd = new FirefoxDriver();
-    wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+  public ApplicationManager(Browser browser) {
+    this.browser = browser;
+  }
+
+  public void init() {
+    if (browser == Browser.FIREFOX) {
+        wd = new FirefoxDriver();
+      } else if (browser == Browser.CHROME){
+        wd = new ChromeDriver();}
+        else if(browser == Browser.EDGE){
+          wd = new EdgeDriver();
+        }
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     wd.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
