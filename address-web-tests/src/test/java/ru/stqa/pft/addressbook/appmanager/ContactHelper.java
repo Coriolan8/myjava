@@ -54,5 +54,21 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
+  public void returnHomePage() {
+    click(By.linkText("home"));
+
+  }
+
+  public boolean isThereAContact() {
+    return isElemetPresent(By.name("selected[]"));
+  }
+
+  public void createContact(ContactData contact) {
+    addNewContact();
+    fillContactForm(contact,true);
+    submitContactCreation();
+    returnHomePage();
+
+  }
 }
 
