@@ -34,8 +34,8 @@ public class ApplicationManager {
     wd.get("http://localhost/addressbook/");
     sessionHelper = new SessionHelper(wd);
     sessionHelper.login("admin", "secret");
-    groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
+    groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
 
    }
