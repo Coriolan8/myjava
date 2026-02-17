@@ -30,14 +30,14 @@ public class ApplicationManager {
         else if(browser == Browser.EDGE){
           wd = new EdgeDriver();
         }
-        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
     wd.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     SessionHelper sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
     sessionHelper.login("admin", "secret");
-  }
+   }
 
 
   public void stop() { navigationHelper.wd.quit();
