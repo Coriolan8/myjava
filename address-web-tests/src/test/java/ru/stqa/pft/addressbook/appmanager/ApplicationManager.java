@@ -32,22 +32,18 @@ public class ApplicationManager {
         }
         wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
     wd.get("http://localhost/addressbook/");
+    sessionHelper = new SessionHelper(wd);
+    sessionHelper.login("admin", "secret");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
-    SessionHelper sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
-    sessionHelper.login("admin", "secret");
+
    }
-
-
   public void stop() { navigationHelper.wd.quit();
   }
-
-
   public GroupHelper getGroupHelper() {
     return groupHelper;
   }
-
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
       }
